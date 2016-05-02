@@ -63,10 +63,9 @@ begin
 procedure pokracovat;
 begin
   writeln('pokracujte stisknutim libovolne klavesy...');
-  readkey;
+    readkey;
   ClrScr;
   end;
-
 procedure nasobeni;
 var k:integer;
 begin
@@ -90,7 +89,7 @@ for i:=1 to n do
 end;
 procedure cisla;
 var maxA,maxB,minA,minB: real;
-  a,b,c,d,e,f,g,h:integer;
+  pozice : array [1..8]of integer ;
 Begin
   minA:=poleA[1,1];
   minB:=poleB[1,1];
@@ -99,19 +98,19 @@ Begin
   for i:= 1 to n do
   for j:=1 to n do
   begin
-    if (poleA[i,j]<=minA)then begin minA:=poleA[i,j]; a:=i; b:=j;end
-    else if (poleA[i,j]>=maxA)then begin maxA:=poleA[i,j]; c:=i; d:=j; end;
-    if (poleB[i,j]<=minB)then begin minB:=poleB[i,j]; e:=i; f:=j; end
-    else if (poleB[i,j]>=maxB)then begin maxB:=poleB[i,j]; g:=i; h:=j; end;
+    if (poleA[i,j]<=minA)then begin minA:=poleA[i,j]; pozice[1]:=i; pozice[2]:=j;end
+    else if (poleA[i,j]>=maxA)then begin maxA:=poleA[i,j]; pozice[3]:=i; pozice[4]:=j; end;
+    if (poleB[i,j]<=minB)then begin minB:=poleB[i,j]; pozice[5]:=i; pozice[6]:=j; end
+    else if (poleB[i,j]>=maxB)then begin maxB:=poleB[i,j]; pozice[7]:=i; pozice[8]:=j; end;
   end;
 writeln;
 writeln('Matice A:');
-writeln('nejvetsi:',maxA:4:0,' na pozici [',c,',',d,']');
-writeln('nejmensi:',minA:4:0,' na pozici [',a,',',b,']');
+writeln('nejvetsi:',maxA:4:0,' na pozici [',pozice[3],',',pozice[4],']');
+writeln('nejmensi:',minA:4:0,' na pozici [',pozice[1],',',pozice[2],']');
 writeln;
 writeln('Matice B:');
-writeln('nejvetsi:',maxB:4:0,' na pozici [',g,',',h,']');
-writeln('nejmensi:',minB:4:0,' na pozici [',e,',',f,']');
+writeln('nejvetsi:',maxB:4:0,' na pozici [',pozice[7],',',pozice[8],']');
+writeln('nejmensi:',minB:4:0,' na pozici [',pozice[5],',',pozice[6],']');
 end;
 
 begin
